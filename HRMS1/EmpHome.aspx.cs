@@ -25,13 +25,14 @@ namespace HRMS1
         {
             int cl = 6, sl = 6, pl = 12, totalLeaveDays;
 
-            DateTime startDate = Calendar1.SelectedDate;
-            DateTime endDate = Calendar2.SelectedDate;
+            DateTime startDate = DateTime.Parse(Calendar1.Text);
+            DateTime endDate = DateTime.Parse(Calendar2.Text);
 
             if (startDate != DateTime.MinValue && endDate != DateTime.MinValue && endDate >= startDate)
             {
                 // Calculate the total number of days between the selected dates (including start and end date)
                 totalLeaveDays = (endDate - startDate).Days + 1;
+                //Session["rqstLeaveDays"] = totalLeaveDays;
 
                 // Display the total leave days in the label
                 //Label2.Text = "Total Leave Days: " + totalLeaveDays;
@@ -40,9 +41,7 @@ namespace HRMS1
                     if (totalLeaveDays <= pl)
                     {
                         int remaingleave = pl - totalLeaveDays;
-                        string qpl = $"update users set pl={remaingleave} where email='{Session["name"].ToString()}'";
-                        SqlCommand cmd2 = new SqlCommand(qpl, conn);
-                        cmd2.ExecuteNonQuery();
+                        
 
                     }
                     else
@@ -57,9 +56,7 @@ namespace HRMS1
                     if (totalLeaveDays <= cl)
                     {
                         int remaingleave = cl - totalLeaveDays;
-                        string qcl = $"update users set cl={remaingleave} where email='{Session["name"].ToString()}'";
-                        SqlCommand cmd2 = new SqlCommand(qcl, conn);
-                        cmd2.ExecuteNonQuery();
+                      
 
                     }
                     else
@@ -74,9 +71,6 @@ namespace HRMS1
                     if (totalLeaveDays <= sl)
                     {
                         int remaingleave = sl - totalLeaveDays;
-                        string qsl = $"update users set sl={remaingleave} where email='{Session["name"].ToString()}'";
-                        SqlCommand cmd2 = new SqlCommand(qsl, conn);
-                        cmd2.ExecuteNonQuery();
 
                     }
                     else
@@ -87,7 +81,9 @@ namespace HRMS1
 
                 }
 
-                string q = $"exec leave '{DropDownList1.SelectedValue.ToString()}','{Calendar1.SelectedDate}','{Calendar2.SelectedDate}','{totalLeaveDays}','{TextBox1.Text}','{Session["name"].ToString()}'";
+                string startDateString = startDate.ToString("yyyy-MM-dd");
+                string endDateString = endDate.ToString("yyyy-MM-dd");
+                string q = $"exec rqst_leave '{Session["name"].ToString()}','{DropDownList1.SelectedValue}','{startDateString}','{endDateString}','{totalLeaveDays}','{TextBox1.Text}'";
                 SqlCommand cmd = new SqlCommand(q, conn);
                 cmd.ExecuteNonQuery();
                 Response.Write($"<script>alert('Leave Applied Sucessfulyy..')</script> ");
@@ -102,14 +98,8 @@ namespace HRMS1
             
         }
 
-        protected void Button3_Click(object sender, EventArgs e)
-        {
-            string q = $"select pl,sl,cl from users where urole='EMP' and email='{Session["name"].ToString()}'";
-            SqlCommand cmd = new SqlCommand(q, conn);
-            SqlDataReader rdr = cmd.ExecuteReader();
-            rdr.Read();
-            Label2.Text = $"Total Paid leave : 12  Remaining Paid leaves : {rdr["pl"].ToString()} || Total Sick Leave :6  Remainig Sick leaves : {rdr["sl"].ToString()}\n|| Total Casual Leave :6 || Remainig Casual leaves : {rdr["cl"].ToString()}";
+        
 
-        }
+        
     }
 }

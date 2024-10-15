@@ -11,34 +11,34 @@ namespace HRMS1
 {
 
 
-    public partial class HRHome
+    public partial class WebForm1
     {
 
         /// <summary>
-        /// GridView1 control.
+        /// lblpl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Label lblpl;
 
         /// <summary>
-        /// SqlDataSource1 control.
+        /// lblcl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.Label lblcl;
 
         /// <summary>
-        /// Label2 control.
+        /// lblsl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lblsl;
     }
 }

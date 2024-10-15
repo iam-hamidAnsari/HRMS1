@@ -43,6 +43,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -67,13 +73,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddEvent.aspx" />
+    <Content Include="CalenderLeave.aspx" />
     <Content Include="EmpHome.aspx" />
+    <Content Include="EmpUploadDoc.aspx" />
+    <Content Include="EmpShowOfferletter.aspx" />
+    <Content Include="GenrateSlip.aspx" />
     <Content Include="HRHome.aspx" />
+    <Content Include="HRReg.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="Reg.aspx" />
+    <Content Include="OfferLatter.aspx">
+      <BrowseToURL>~/OfferLatter.aspx</BrowseToURL>
+    </Content>
+    <Content Include="Show Salary Slip.aspx" />
+    <Content Include="SlarySlip.aspx" />
+    <Content Include="ViewOfferLetter.aspx" />
     <Content Include="Web.config" />
+    <Content Include="EMPLeave.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEvent.aspx.cs">
+      <DependentUpon>AddEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddEvent.aspx.designer.cs">
+      <DependentUpon>AddEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CalenderLeave.aspx.cs">
+      <DependentUpon>CalenderLeave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CalenderLeave.aspx.designer.cs">
+      <DependentUpon>CalenderLeave.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Emp.Master.cs">
       <DependentUpon>Emp.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -87,6 +119,27 @@
     </Compile>
     <Compile Include="EmpHome.aspx.designer.cs">
       <DependentUpon>EmpHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmpUploadDoc.aspx.cs">
+      <DependentUpon>EmpUploadDoc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmpUploadDoc.aspx.designer.cs">
+      <DependentUpon>EmpUploadDoc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmpShowOfferletter.aspx.cs">
+      <DependentUpon>EmpShowOfferletter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmpShowOfferletter.aspx.designer.cs">
+      <DependentUpon>EmpShowOfferletter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GenrateSlip.aspx.cs">
+      <DependentUpon>GenrateSlip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GenrateSlip.aspx.designer.cs">
+      <DependentUpon>GenrateSlip.aspx</DependentUpon>
     </Compile>
     <Compile Include="Hr.Master.cs">
       <DependentUpon>Hr.Master</DependentUpon>
@@ -102,6 +155,13 @@
     <Compile Include="HRHome.aspx.designer.cs">
       <DependentUpon>HRHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="HRReg.aspx.cs">
+      <DependentUpon>HRReg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HRReg.aspx.designer.cs">
+      <DependentUpon>HRReg.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -109,13 +169,41 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reg.aspx.cs">
-      <DependentUpon>Reg.aspx</DependentUpon>
+    <Compile Include="OfferLatter.aspx.cs">
+      <DependentUpon>OfferLatter.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Reg.aspx.designer.cs">
-      <DependentUpon>Reg.aspx</DependentUpon>
+    <Compile Include="OfferLatter.aspx.designer.cs">
+      <DependentUpon>OfferLatter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EMPLeave.aspx.cs">
+      <DependentUpon>EMPLeave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EMPLeave.aspx.designer.cs">
+      <DependentUpon>EMPLeave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Show Salary Slip.aspx.cs">
+      <DependentUpon>Show Salary Slip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Show Salary Slip.aspx.designer.cs">
+      <DependentUpon>Show Salary Slip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SlarySlip.aspx.cs">
+      <DependentUpon>SlarySlip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SlarySlip.aspx.designer.cs">
+      <DependentUpon>SlarySlip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewOfferLetter.aspx.cs">
+      <DependentUpon>ViewOfferLetter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewOfferLetter.aspx.designer.cs">
+      <DependentUpon>ViewOfferLetter.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +216,10 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GeneratedPDFs\" />
+    <Folder Include="UploadedDocuments\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

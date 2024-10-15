@@ -24,11 +24,25 @@
                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
                          <ul class="navbar-nav mr-auto">
                            <li class="nav-item active">
-                             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                             <a class="nav-link" href="EmpHome.aspx">Home <span class="sr-only">(current)</span></a>
                            </li
+                             </li>
                             <li class="nav-item active">
-                                <asp:LinkButton ID="LinkButton1" class="nav-link" runat="server" >Apply leave</asp:LinkButton>
+                                <a class="nav-link" href="CalenderLeave.aspx">Calender <span class="sr-only">(current)</span></a>
                             </li>
+                           <li class="nav-item active">
+                             <a class="nav-link" href="EMPLeave.aspx">Check Leaves <span class="sr-only">(current)</span></a>
+                            </li>
+                              <li class="nav-item active">
+                               <a class="nav-link" href="EmpShowOfferletter.aspx">View Offer Letter<span class="sr-only">(current)</span></a>
+                              </li>
+                             <li class="nav-item active">
+                                <a class="nav-link" href="EmpUploadDoc.aspx">Upload Documents<span class="sr-only">(current)</span></a>
+                             </li>
+                              
+                             <li class="nav-item active">
+                                <a class="nav-link" href="SlarySlip.aspx">View Salary Slip<span class="sr-only">(current)</span></a>
+                             </li>
                            <li class="nav-item dropdown">
                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                Hello <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
