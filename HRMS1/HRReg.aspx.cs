@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -24,7 +25,9 @@ namespace HRMS1
         protected void Button1_Click(object sender, EventArgs e)
         {
             string name = TextBox1.Text, email = TextBox2.Text, pass = TextBox3.Text,contact_no=TextBox4.Text,address=TextBox5.Text;
-            string q = $"exec CreateAcct '{name}','{email}','{pass}','{contact_no}','{address}'";
+            FileUpload1.SaveAs(Server.MapPath("ProfilePhotos/") + Path.GetFileName(FileUpload1.FileName));
+            string img = "profile_img/"+Path.GetFileName(FileUpload1.FileName);
+            string q = $"exec CreateAcct '{name}','{email}','{pass}','{img}','{contact_no}','{address}'";
             SqlCommand cmd = new SqlCommand(q, conn);
             int row =cmd.ExecuteNonQuery();
             Response.Write("<script>alert('User registerd successfully..'); </script>");

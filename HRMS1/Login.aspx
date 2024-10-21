@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: papayawhip;
         }
         .login-container {
             max-width: 400px;
@@ -17,7 +17,7 @@
             border: 1px solid #ced4da;
             border-radius: 5px;
             background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px darkgreen;
         }
     </style>
 </head>
@@ -35,6 +35,9 @@
             </div>
             <div class="text-center">
                 <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" CssClass="btn btn-primary" Text="Sign In" />
+            </div>
+            <div class="text-center mt-3">
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/ForgetPass.aspx" CssClass="btn btn-link">Forget Password?</asp:HyperLink>
             </div>
         </div>
     </form>

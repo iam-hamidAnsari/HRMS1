@@ -15,46 +15,88 @@
 <body>
     <form id="form1" runat="server">
         <div>
-              <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                   <a class="navbar-brand" href="#">Employee Navbar</a>
-                       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                         <span class="navbar-toggler-icon"></span>
-                       </button>
+             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <a class="navbar-brand" href="#">Employee Navbar</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                         <ul class="navbar-nav mr-auto">
-                           <li class="nav-item active">
-                             <a class="nav-link" href="EmpHome.aspx">Home <span class="sr-only">(current)</span></a>
-                           </li
-                             </li>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="CalenderLeave.aspx">Calender <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="EmpHome.aspx">Home</a>
                             </li>
-                           <li class="nav-item active">
-                             <a class="nav-link" href="EMPLeave.aspx">Check Leaves <span class="sr-only">(current)</span></a>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="CalenderLeave.aspx">Calender</a>
                             </li>
-                              <li class="nav-item active">
-                               <a class="nav-link" href="EmpShowOfferletter.aspx">View Offer Letter<span class="sr-only">(current)</span></a>
-                              </li>
-                             <li class="nav-item active">
-                                <a class="nav-link" href="EmpUploadDoc.aspx">Upload Documents<span class="sr-only">(current)</span></a>
-                             </li>
-                              
-                             <li class="nav-item active">
-                                <a class="nav-link" href="SlarySlip.aspx">View Salary Slip<span class="sr-only">(current)</span></a>
-                             </li>
-                           <li class="nav-item dropdown">
-                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               Hello <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                             </a>
-                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                               <a class="dropdown-item" href="#">Profile</a>
-                               <a class="dropdown-item" href="Login.aspx">Logout</a>
-                           </li>
-     
-                       </div>
-                 </nav>
-            <div> <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder></div>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="Tasks.aspx">Tasks</a>
+                            </li>
+
+                            <!-- Intra Chat placed outside dropdown -->
+                            <li class="nav-item active">
+                                <a class="nav-link" href="IntraChat.aspx">Intra Chat</a>
+                            </li>
+
+                            <!-- Documents Dropdown -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDocuments" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Documents
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownDocuments">
+                                    <a class="dropdown-item" href="ViewGenratedDocs.aspx">Generated Docs</a>
+                                    <a class="dropdown-item" href="EmpShowOfferletter.aspx">Offer Letter</a>
+                                    <a class="dropdown-item" href="EmpUploadDoc.aspx">Upload Documents</a>
+                                </div>
+                            </li>
+
+                            <!-- Leaves -->
+                            <li class="nav-item active">
+                                <a class="nav-link" href="EMPLeave.aspx">Check Leaves</a>
+                            </li>
+
+                            <!-- Payroll Dropdown -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPayroll" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Payroll
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownPayroll">
+                                    <a class="dropdown-item" href="SlarySlip.aspx">Salary Slip</a>
+                                </div>
+                            </li>
+
+                            <!-- HR Management Dropdown (Apply Resignation moved out) -->
+                            <li class="nav-item active">
+                                <a class="nav-link" href="Resign.aspx">Apply For Resignation</a>
+                            </li>
+
+                            <!-- Tickets Dropdown -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTickets" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Tickets
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownTickets">
+                                    <a class="dropdown-item" href="EmpRaisedTktaspx.aspx">Raise Ticket</a>
+                                    <a class="dropdown-item" href="EmpMyTkt.aspx">My Ticket</a>
+                                    <a class="dropdown-item" href="EmpTktHist.aspx">Ticket History</a>
+                                </div>
+                            </li>
+
+                            <!-- Profile and Log Out Dropdown -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Hello <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownProfile">
+                                    <a class="dropdown-item" href="#">Profile</a>
+                                    <asp:Button CssClass="dropdown-item" ID="Button1" runat="server" Text="Log Out" OnClick="Button1_Click" />
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            <div> 
+          <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder></div>
            
         </div>
     </form>

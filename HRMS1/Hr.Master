@@ -26,10 +26,16 @@
                       <li class="nav-item active">
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                       </li>
+                         <li class="nav-item active">
+                            <a class="nav-link" href="IntraChatHR.aspx">Intra Chat<span class="sr-only">(current)</span></a>
+                        </li>
                         <li class="nav-item active">
                         <a class="nav-link" href="HRReg.aspx">Add Employee <span class="sr-only">(current)</span></a>
                        </li>
-                        </li>
+                        <li class="nav-item active">
+                        <a class="nav-link" href="DcmntGenration.aspx">Genrate Document <span class="sr-only">(current)</span></a>
+                       </li>
+                       
                          <li class="nav-item active">
                          <a class="nav-link" href="OfferLatter.aspx">Offer letter<span class="sr-only">(current)</span></a>
                         </li>
@@ -39,13 +45,28 @@
                          <li class="nav-item active">
                          <a class="nav-link" href="AddEvent.aspx">Add Event<span class="sr-only">(current)</span></a>
                         </li>
+                        <li class="nav-item active">
+                         <a class="nav-link" href="Resignations.aspx">Resign Applications<span class="sr-only">(current)</span></a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTickets" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Tickets
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownTickets">
+                                <a class="dropdown-item" href="HrRaisedTkt.aspx">Raise Ticket</a>
+                                <a class="dropdown-item" href="HrMyTkt.aspx">My Ticket</a>
+                                <a class="dropdown-item" href="HrTktHist.aspx">Ticket History</a>
+                            </div>
+                        </li>
+
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Hello <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="#">Profile</a>
-                          <a class="dropdown-item" href="Login.aspx">Logout</a>
+                          <asp:Button CssClass="dropdown-item" ID="Button1" runat="server" Text="Log Out" OnClick="Button1_Click" />
                       </li>
      
                   </div>

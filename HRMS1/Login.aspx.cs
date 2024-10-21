@@ -39,6 +39,11 @@ namespace HRMS1
                         Session["name"] = email;
                         Response.Redirect("EmpHome.aspx");
                     }
+                    else if (rdr["email"].Equals(email) && rdr["pass"].Equals(password) && rdr["urole"].Equals("TRAINER"))
+                    {
+                        Session["name"] = email;
+                        Response.Redirect("TrainerHome.aspx");
+                    }
                     else
                     {
                         Response.Write("<script>alert('Invalid Cradentials..')</script>");

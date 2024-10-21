@@ -17,6 +17,10 @@
     <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
             <BR />
             <BR />
+            Profile Photo :
+            <asp:FileUpload ID="FileUpload1" runat="server" />
+            <BR />
+            <BR />
             Contact No :
             <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
             <BR />

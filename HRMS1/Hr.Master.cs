@@ -13,5 +13,12 @@ namespace HRMS1
         {
             Label1.Text = Session["name"].ToString();
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
+        }
     }
 }
