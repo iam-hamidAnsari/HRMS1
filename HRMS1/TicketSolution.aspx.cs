@@ -41,7 +41,7 @@ namespace HRMS1
 
             
             Response.Write("<script>alert('Soln uploaded Successfully...');</script>");
-            //Response.Write("<script>window.history.back();</script>");
+            
 
         }
 

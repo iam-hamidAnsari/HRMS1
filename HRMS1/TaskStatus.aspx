@@ -48,7 +48,10 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Solutions">
                     <ItemTemplate>
-                        <asp:Button runat="server" CommandName="Viewsoln" CommandArgument='<%# Eval("soln_task") %>' Text="Download soln" CssClass="btn btn-info btn-sm" />
+                         <asp:HyperLink ID="lnkDownload" runat="server" NavigateUrl='<%# Eval("soln_task") %>' 
+                             Download='<%# Eval("soln_task") %>' CssClass="ms-2 text-success">
+                             <i class="fas fa-download"></i> Download
+                         </asp:HyperLink> 
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Score">
@@ -66,4 +69,7 @@
         </asp:GridView>
     </div>
 </div>
+
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
 </asp:Content>

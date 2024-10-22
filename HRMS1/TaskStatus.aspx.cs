@@ -22,23 +22,6 @@ namespace HRMS1
             conn.Open();
         }
 
-        public string getfiletype(string path)
-        {
-            string ext = Path.GetExtension(path).ToLower();
-            switch (ext)
-            {
-                case ".pdf": return "application/pdf";
-                case ".doc": return "application/msword";
-                case ".docx": return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-                case ".jpg":
-                case ".jpeg": return "image/jpeg";
-                case ".png": return "image/png";
-                default: return "application/octet-stream";
-            }
-        }
-
-       
-
         protected void Button2_Click(object sender, EventArgs e)
         {
             if (DropDownList1.SelectedValue.Equals("completed"))
@@ -62,25 +45,7 @@ namespace HRMS1
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName.Equals("Viewsoln"))
-            {
-                string docpath = e.CommandArgument.ToString();
-
-                if (File.Exists(Server.MapPath(docpath)))
-                {
-                 
-                    Response.ContentType = getfiletype(docpath);
-                    Response.AppendHeader("Content-Disposition", $"attachment; filename={Path.GetFileName(docpath)}");
-                    Response.TransmitFile(Server.MapPath(docpath));
-                    Response.End();
-                }
-                else
-                {
-                    
-                    Response.Write("<script>alert('file not Found!!')</script>");
-                }
-            }
+        { 
             if (e.CommandName.Equals("UpdateScore"))
             {
                 GridViewRow row = (GridViewRow)((Control)e.CommandSource).NamingContainer; //for finding row

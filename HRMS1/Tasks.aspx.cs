@@ -29,28 +29,12 @@ namespace HRMS1
         public void fetchTask()
         {
             string q = $"exec fetch_task '{Session["name"].ToString()}'";
-            SqlDataAdapter ada = new SqlDataAdapter(q,conn);
+            SqlDataAdapter ada = new SqlDataAdapter(q, conn);
             DataTable dt = new DataTable();
             ada.Fill(dt);
             GridView1.DataSource = dt;
             GridView1.DataBind();
         }
-
-        public string getfiletype(string path)
-        {
-            string ext = Path.GetExtension(path).ToLower();
-            switch (ext)
-            {
-                case ".pdf": return "application/pdf";
-                case ".doc": return "application/msword";
-                case ".docx": return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-                case ".jpg":
-                case ".jpeg": return "image/jpeg";
-                case ".png": return "image/png";
-                default: return "application/octet-stream";
-            }
-        }
-
         public void sumbitTask(int id ,string path)
         {
             string q = $"exec sumbit_task {id},'{path}'";
@@ -60,25 +44,7 @@ namespace HRMS1
 
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName.Equals("ViewTask"))
-            {
-                string docpath = e.CommandArgument.ToString();
-
-                if (File.Exists(Server.MapPath(docpath)))
-                {
-                    // Open the file in the browser
-                    Response.ContentType = getfiletype(docpath);
-                    Response.AppendHeader("Content-Disposition", $"attachment; filename={Path.GetFileName(docpath)}");
-                    Response.TransmitFile(Server.MapPath(docpath));
-                    Response.End();
-                }
-                else
-                {
-                    // Handle file not found error
-                    Response.Write("<script>alert('file not Found!!')</script>");
-                }
-            }
+        { 
             if (e.CommandName.Equals("UploadSoln"))
             {
                 GridViewRow row = (GridViewRow)((Control)e.CommandSource).NamingContainer;

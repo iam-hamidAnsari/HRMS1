@@ -22,29 +22,21 @@ namespace HRMS1
             if (!IsPostBack)
             {
 
-                string query = "exec fetchAllEmails";
-                SqlDataAdapter ada = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                ada.Fill(dt);
-                DropDownList1.DataSource = dt;
-                DropDownList1.DataTextField = "email";
-                DropDownList1.DataValueField = "email";
-                DropDownList1.DataBind();
-                DisplayPreviousMessages();
+                fetchEmails();
             }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+
+        private void fetchEmails()
         {
-            string fromEmail = Session["name"].ToString();
-            string toEmail = DropDownList1.SelectedValue;
-            string message = TextBox2.Text;
-
-
-            string query = $"exec SendMsg '{fromEmail}','{toEmail}','{message}'";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.ExecuteNonQuery();
-            DisplayPreviousMessages();
+            string query = "exec fetchAllEmails";
+            SqlDataAdapter ada = new SqlDataAdapter(query, conn);
+            DataTable dt = new DataTable();
+            ada.Fill(dt);
+            DropDownList1.DataSource = dt;
+            DropDownList1.DataTextField = "email";
+            DropDownList1.DataValueField = "email";
+            DropDownList1.DataBind();
         }
 
         private void DisplayPreviousMessages()
@@ -59,6 +51,24 @@ namespace HRMS1
             ada.Fill(dt);
             DataList1.DataSource = dt;
             DataList1.DataBind();
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisplayPreviousMessages();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string fromEmail = Session["name"].ToString();
+            string toEmail = DropDownList1.SelectedValue;
+            string message = TextBox2.Text;
+
+
+            string query = $"exec SendMsg '{fromEmail}','{toEmail}','{message}'";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            DisplayPreviousMessages();
         }
     }
 }
